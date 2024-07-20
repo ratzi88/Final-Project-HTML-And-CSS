@@ -1,0 +1,326 @@
+/* This CSS Is organized by the most general tag to the more specific class. the classes are organized by the logical way the user will enter the website, first, he will see the home page next to the recipes and then the about */
+/* Dfined a font from the downloaded font inside the "Fonts/Pacifico" folder using src */
+@font-face {
+    font-family: Pacifico;
+    src: url(Fonts/Pacifico/Pacifico-Regular.ttf);
+}
+/* Dfined a default font to all of the text unless something else is specified */
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* Put a default background color and margin set to zero to remove the default margin from the "body" that some browsers add , plus added zoom to decide the size of the body element*/
+body{
+    background-color:#fff3e6;
+    margin: 0;
+    zoom: 80%;
+}
+/* align text to center on the main footer */
+main, footer{ 
+    text-align: center;
+}
+/* allows the navbar inside the header to become sticky */
+header{
+    display: unset;
+}
+/* design the h2 tag inside the footer*/
+footer h2{
+    font-size: 50px;
+    font-family: Pacifico;
+    
+}
+footer h3{
+    font-size: 30px;
+    font-family: Pacifico;
+}
+/* design the h1 tag*/
+h1{
+    font-size: 50px;
+    font-family: Pacifico;
+}
+/* remove white space in the back of the pre-tag */
+pre{
+    white-space: pre-line;
+}
+/* created a class called nav bar inside the header of each page on the top, it will be sticky*/
+.navbar{
+    padding: 30px;
+    top: 0;
+    z-index: 100;
+    background:#ac9c8b;
+    position: sticky;
+    text-align: left;
+    overflow: hidden;
+}
+/* design the tag inside the nav bar class */
+.navbar a{
+    padding: 11px;
+    font-size: 20px;
+    float: left;
+    color: white;
+    text-decoration: none; 
+}
+/* when hovering over the tag the background color will change */
+.navbar a:hover {
+    background-color: lightgray;
+    color: black;
+}
+/* design the img tag inside the nav bar */
+.navbar img{
+    width:100px;
+    height:110px;
+    top:0px; 
+    right:0px;
+    position: absolute;
+    overflow: hidden;
+}
+/* design the audio tag*/
+audio{
+    padding: 20px;
+    float: left;
+}
+/* design the background on the audio tag */
+audio::-webkit-media-controls-panel {
+    background-color: #FECFBD;
+}
+/* design the play button on the audio tag */
+audio::-webkit-media-controls-play-button {
+    border-radius: 50%;
+    background-color: #B1D4E0;
+}  
+/* when hovering over the play button the background color will change */
+audio::-webkit-media-controls-play-button:hover {
+    background-color: #b1d4e0b3;
+}
+/* design the volume slider inside the audio tag */
+audio::-webkit-media-controls-volume-slider {
+    border-radius: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #B1D4E0;
+}
+/* inside a section element in home.html created an intro class and designed the following tag in it */
+.Intro img{
+    margin-right: 300px;
+    width: 900px;
+}
+/* inside a section element in home.html created an intro class and designed the following tag in it */
+.Intro h1{
+    padding-top: 80px;
+    font-size: 120px;
+    text-align: center;
+}
+/* inside a section element in home.html created an intro class and designed the following tag in it */
+.Intro pre{
+    margin-top: 80px;
+    font-size: 25px;
+    text-align: center;
+}
+/* inside a section element in home.html created a gallery class*/
+.gallery{
+    display: grid; /* create a grid container */
+    grid-template-columns: repeat(5, 1fr); /* will fit 5 pictures in a row */
+    grid-gap: 10px;
+    padding: 20px;
+    margin-top: 100px;
+}
+/* inside a section element in home.html created a gallery class and designed the following tag in it */
+.gallery img{
+    width: 100%;
+    height: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform .2s;
+    object-fit: cover;
+}
+/* in order to make the image pop hovering will nmake the image grow by 1.1 */
+.gallery img:hover{
+    transform: scale(1.1);
+}
+/* added id to h2 tag in the footer in home.html to align the text to the center and to increase the font */
+#Our_Recpies{
+    font-size: 150px;
+    text-align: center;
+}
+/* inside the footer element in home.html added a section element to define a container to the slide-show and called it slides-container(we wanted to avoid using div that's why we chose to use section instead)*/
+.slides-container {
+    width: 40%; 
+    height: 800px;
+    border-radius: 30px;
+    margin-left: 30%;
+    margin-top: 10px;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* inside the slides-container added another section called slides and allowed it to use all the width and height of the slides-container */
+.slides {
+    width: 100%;
+    height: 100%;
+}
+/* desgin the image tag inside the slides class */
+.slides img{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+    animation: slide-show 18s infinite; /*assign the slide show element that we will later define, the slide show will last 18s and will run forever */
+    position: absolute;
+}
+/* the 2 img tag will have the id slide-2 assigned ,and the annimation delay will be 6s*/
+#slide-2{
+    animation-delay: 6s ;
+}
+/* the 3 img tag will have the id slide-3 assigned ,and the annimation delay will be 10s*/
+#slide-3{
+    animation-delay: 10s;
+}
+/* the 4 img tag will have the id slide-4 assigned ,and the annimation delay will be 14s*/
+#slide-4{
+    animation-delay: 14s;
+}
+/* here we will define the opacity(transparent or visable) of the images in the slide show */
+@keyframes slide-show{
+    /* at the start of the animation the image will be completely transparent and not visible */
+    0%{
+        opacity: 0; 
+
+    }
+    /* when the animation progresses to 10% the image will be visible */
+    10%{
+        opacity: 1;
+    }
+    /*from 20% to 30% progress the opacity remains at 1. This creates a pause in the animation where the image stays fully visible*/
+    20%,
+    30%{
+        opacity: 1;
+    }
+    /*from 50% the opacity will be 0, that will make the image transparent and not visible that will create a fade out affect */
+    50%{
+    opacity: 0;
+    }
+}
+/* inside Recepies_Landing.html created a table and assigned it the class Recpie */
+.Recpie{
+    width: 900px;
+    margin-top: 55px;
+    margin: 0px auto;
+    padding: 20px; 
+    text-align: center;
+}
+/* inside Recepies_Landing.html created a table and assigned it the class Recpie ,and desinged the img tag*/
+.Recpie img{
+    width: 380px;
+    height: 380px;
+    transition: transform .2s;
+    border-radius: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;   
+}
+/* in order to make the image pop hovering will nmake the image grow by 1.1  */
+.Recpie img:hover{
+    transform: scale(1.1);
+}
+/* inside Recepies_Landing.html created a table and assigned it the class Recpie ,and desinged the a tag*/
+.Recpie a{
+    color: black;
+}
+/* inside the recipes there's a picture who represent that dessert, each on of them has id assigned to the called food_picture, we will make the picture egg shaped and add it the scale when hovering affect */
+#food_picture{
+    height: 550px;
+    width: 450px;
+    transition: transform .2s;
+    border-radius: 50%;
+	margin: 55px 0px 10px 300px;
+}
+/*in order to make the image pop hovering will nmake the image grow by 1.2  */
+#food_picture:hover{
+    transform: scale(1.2);
+}
+/* design elments inside each recipe */
+.Ingredients_LeftToRight , .Instructions_LeftToRight , .video, .prerequisites_LeftToRight, .prerequisites_Hebrew, .Instructions_Hebrew, .Ingredients_Hebrew{
+    max-width: 900px;
+    margin: 55px auto;
+    padding: 20px; 
+    border: 2px solid black;
+    border-radius: 25px;
+    text-align: center;
+    background-color:white;
+    text-decoration: none;
+}
+/* design the h2 tag in the elments inside each recipe */
+.prerequisites_LeftToRight h2, .Instructions_LeftToRight h2 , .video h2, .Ingredients_LeftToRight h2 , .prerequisites_Hebrew h2, .Instructions_Hebrew h2, .Ingredients_Hebrew h2{
+    color:#ac9c8b;
+}
+/*change text align to the right to left languages */
+.prerequisites_LeftToRight ul,.Ingredients_LeftToRight ul,.Instructions_LeftToRight ol{
+    margin-left: 5%;
+    text-align: left;   
+}
+/*change text align to the hebrew language */
+.prerequisites_Hebrew ul,.Instructions_Hebrew ol , .Ingredients_Hebrew ul{
+    margin-right: 5%;
+    text-align: right;
+}
+/*  inside a aside element in each recpie we created an intro class*/
+.Fun_Fact{
+    right: 0;
+    top: 300px;
+    width: 320px;
+    border: 3px solid #6F4E37;
+    border-radius: 25px;
+    position: sticky;
+    background-color: white;
+    height: auto;
+    float: right;
+    
+}
+/*  inside a aside element in each recpie we created an intro class and designed the following tag in it */
+.Fun_Fact h2{
+    font-size: 40px;
+    font-family: Pacifico;
+}
+/*  inside a aside element in each recpie we created an intro class and designed the following tag in it */
+.Fun_Fact p{
+    padding:25px 5px 10px 5px;
+}
+/*  inside a aside element in each recpie we created an intro class and designed the following tag in it */
+.Fun_Fact a{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+/* when hovering over the fun_fact class the border will change from solid to dotted and a diffrent color will apper */
+.Fun_Fact:hover{
+    border: 3px dotted #6F4E37;
+    color: #6F4E37;
+    background: #fff;
+}
+/* when hovering over the fun_fact class the a tag will change color */
+.Fun_Fact a:hover{
+    color: #6F4E37;
+}
+/* inside the a tag the gif added with the #fun_fact_gif id */
+#fun_fact_gif{
+    width: 50px;
+    height: 50px;
+}
+/* design the width and height of the iframe tag */
+iframe{
+    width:560px;
+    height:315px;
+}
+.About_Us{
+    max-width: 900px;
+    margin: 55px auto;
+    padding: 20px; 
+    border: 2px solid black;
+    border-radius: 25px;
+    text-align: center;
+    background-color:white;
+    text-decoration: none;
+    font-family: "Varela Round", sans-serif;
+}
